@@ -74,6 +74,10 @@ typedef struct {
  * @{
  */
 
+// Adicionado
+extern FontDef_t Font_6x8;
+// Adiconado
+
 /**
  * @brief  7 x 10 pixels font size structure
  */

@@ -61,7 +61,7 @@ main-build: BT_stm.elf secondary-outputs
 
 # Tool invocations
 BT_stm.elf BT_stm.map: $(OBJS) $(USER_OBJS) C:\Users\emanu\STM32CubeIDE\workspace_1.14.1\BT_stm\STM32G431CBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "BT_stm.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\emanu\STM32CubeIDE\workspace_1.14.1\BT_stm\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BT_stm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "BT_stm.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\emanu\STM32CubeIDE\workspace_1.14.1\BT_stm\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BT_stm.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
