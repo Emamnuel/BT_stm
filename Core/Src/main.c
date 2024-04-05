@@ -58,7 +58,7 @@ uint8_t tx_buff[]={65,66,67,68,69,70,71,72,73,74}; // Alfabeto
 
 int i,j;
 
-uint16_t AdcRaw;
+uint32_t AdcRaw;
 
 extern uint8_t rx_buff[10];
 /* USER CODE END PV */
@@ -67,11 +67,18 @@ extern uint8_t rx_buff[10];
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	  if(huart == &huart3){
+		  // trata usart 3
+	  }
+}
+
 
 /* USER CODE END 0 */
 
@@ -115,7 +122,6 @@ int main(void)
 
   HAL_ADC_Start_DMA(&hadc1, &AdcRaw, 1);
 
-    //char snum[5];
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -126,7 +132,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
 	teste(); // Demo de teste com valor float
 
   }
